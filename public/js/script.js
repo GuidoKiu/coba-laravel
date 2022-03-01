@@ -1,6 +1,6 @@
 $(function ()
 {
-    $('.tombolTambahData').on('click', function()
+    $('.tombolTambahData').on('click', function ()
     {
         $('#formModalLabel').html('Tambah Data Mahasiswa');
         $('.modal-footer button[type=submit]').html('Tambah Data');
@@ -13,7 +13,7 @@ $(function ()
 
     });
 
-    $('.tampilModalUbah').on('click', function()
+    $('.tampilModalUbah').on('click', function ()
     {
         $('#formModalLabel').html('Ubah Data Mahasiswa');
         $('.modal-footer button[type=submit]').html('Ubah Data');
@@ -22,27 +22,27 @@ $(function ()
         const id = $(this).data('id');
 
         $.ajax
-        (
-            {
-                url: 'http://localhost/BELAJAR/phpmvc/public/mahasiswa/getubah',
-                data: {id : id},
-                method: 'post',
-                dataType: 'json',
-                success: function(data)
+            (
                 {
-                    $('#id').val(data.id);
-                    $('#nama').val(data.nama);
-                    $('#nim').val(data.nim);
-                    $('#email').val(data.email);
-                    $('#umur').val(data.umur);
-                    $('#prodi').val(data.prodi);
-                }
+                    url: 'http://localhost/BELAJAR/phpmvc/public/mahasiswa/getubah',
+                    data: { id: id },
+                    method: 'post',
+                    dataType: 'json',
+                    success: function (data)
+                    {
+                        $('#id').val(data.id);
+                        $('#nama').val(data.nama);
+                        $('#nim').val(data.nim);
+                        $('#email').val(data.email);
+                        $('#umur').val(data.umur);
+                        $('#prodi').val(data.prodi);
+                    }
 
-            }
-        );
+                }
+            );
     });
 
-    
+
     // const keyword = document.getElementById('keyword');
     // const tombolcari = document.getElementById('tombolCari');
     // const container = document.getElementById('containerGuido');
