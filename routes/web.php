@@ -13,7 +13,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () 
+Route::get('/', function ()
 {
-    return view('welcome');
+    $data = ['Judul' => 'Home', 'Nama' => 'Guido'];
+    return view('welcome', $data);
+});
+Route::get('/mahasiswa', function ()
+{
+    $data = ['Judul' => 'Data Mahasiswa'];
+    return view('mahasiswa', $data);
+});
+Route::get('/about', function ()
+{
+    $data =
+        [
+            'Judul' => 'About',
+            'Nama' => 'Guido',
+            'Hobi' => 'Coding',
+            'BahasaPemograman' => 'C#, PHP, Dart'
+        ];
+    return view('about', $data);
 });
