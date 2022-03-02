@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\MahasiswaController;
+use App\Models\Mahasiswa;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,73 +22,15 @@ Route::get('/', function ()
 });
 
 
-Route::get('/mahasiswa', function ()
-{
-    $mahasiswa = 
-    [
-        [
-            "nama" => "Guido",
-            "nim" => 13,
-            "hobi" => "Coding"
-        ],
-        [
-            "nama" => "Yeri",
-            "nim" => 12,
-            "hobi" => "Main Gitar"
-        ],
-        [
-            "nama" => "Erwin",
-            "nim" => 11,
-            "hobi" => "Main Futsal"
-        ]
-    ];
-
-    $data = ['title' => 'Data Mahasiswa', 'mahasiswa' => $mahasiswa];
-    return view('mahasiswa', $data);
-});
-
+Route::get('/mahasiswa', [MahasiswaController::class, 'index']);
+Route::get('mahasiswa_detail/{slug}', [MahasiswaController::class, 'mahasiswat']); 
+    
 Route::get('/about', function ()
 {
     $data =
         [
             'title' => 'About',
-            'nama' => 'Guido',
-            'hobi' => 'Coding',
-            'bahasa' => 'C#, PHP, Dart'
+            'profil' => Mahasiswa::mahasiswat(13) 
         ];
     return view('about', $data);
-});
-
-Route::get('mahasiswa_detail/{slug}', function($nim)
-{
-    $mahasiswa = 
-    [
-        [
-            "nama" => "Guido",
-            "nim" => "13",
-            "hobi" => "Coding"
-        ],
-        [
-            "nama" => "Yeri",
-            "nim" => "12",
-            "hobi" => "Main Gitar"
-        ],
-        [
-            "nama" => "Erwin",
-            "nim" => "11",
-            "hobi" => "Main Futsal"
-        ]
-    ];
-
-    $detailmhs = [];
-    foreach($mahasiswa as $mt)
-    {
-        if($mt["nim"] == $nim)
-        {
-            $detailmhs = $mt;
-        }
-    }
-
-    $data = ['title' => 'Detail Data Mahasiswa', 'mahasiswa' => $detailmhs];
-    return view('mahasiswa_detail', $data);
 });

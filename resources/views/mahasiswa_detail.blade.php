@@ -6,6 +6,8 @@
             <h6 class="card-subtitle mb-2 text-muted">NIM : {{ $mahasiswa['nim'] }}</h6>
             <p class="card-text">Hobi : {{ $mahasiswa['hobi'] }}</p>
         </div>
-        <h1>detail</h1>
+    </div>
+    <div>
+        <a href="/mahasiswa">Kembali</a>
     </div>
 @endsection
