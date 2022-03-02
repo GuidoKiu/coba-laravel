@@ -4,10 +4,6 @@
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
 
-const a = document.getElementById(judulModal);
-a.onclick(console.log("ayamm"));
-
-
 
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('jquery'), require('popper.js')) :

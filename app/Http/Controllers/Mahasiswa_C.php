@@ -3,18 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Mahasiswa;
+use App\Models\Mahasiswa_M;
 
-class MahasiswaController extends Controller
+class Mahasiswa_C extends Controller
 {
     public function index()
     {
         $data = 
         [
             'title' => 'Data Mahasiswa',
-            'mahasiswa' => Mahasiswa::all()
+            'mahasiswa' => Mahasiswa_M::all()
         ];
-    return view('mahasiswa', $data);
+        return view('mahasiswa', $data);
     }
 
     public function mahasiswat($nim)
@@ -22,7 +22,7 @@ class MahasiswaController extends Controller
         $data = 
         [ 
             'title' => 'Detail Data Mahasiswa', 
-            'mahasiswa' => Mahasiswa::mahasiswat($nim)
+            'mahasiswa' => Mahasiswa_M::detail($nim)
         ];
         return view('mahasiswa_detail', $data);
     }

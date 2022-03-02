@@ -3,7 +3,7 @@
 namespace App\Models;
 
 
-class Mahasiswa
+class Mahasiswa_M
 {
     private static $DataMahasiswa = 
     [
@@ -29,7 +29,7 @@ class Mahasiswa
         return collect(self::$DataMahasiswa);
     }
 
-    public static function mahasiswat($nim)
+    public static function detail($nim)
     {
         $mahasiswa = static::all();
         return $mahasiswa -> firstWhere('nim', $nim);
