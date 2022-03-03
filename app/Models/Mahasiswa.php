@@ -10,5 +10,6 @@ class Mahasiswa extends Model
     use HasFactory;
 
     protected $fillable = ['nama', 'umur', 'hobi', 'nim'];
+    protected $table = 'tbl_mahasiswa';
 }
 

@@ -1,7 +1,7 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\MahasiswaController;
-use App\Models\Mahasiswa_M;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,14 +23,6 @@ Route::get('/', function ()
 
 
 Route::get('/mahasiswa', [MahasiswaController::class, 'index']);
-Route::get('mahasiswa_detail/{mahasiswa:nim}', [MahasiswaController::class, 'mahasiswat']); 
+Route::get('mahasiswa_detail/{mahasiswa:nim}', [MahasiswaController::class, 'find']); 
     
-Route::get('/about', function ()
-{
-    $data =
-        [
-            'title' => 'About',
-            'profil' => Mahasiswa_M::detail(13) 
-        ];
-    return view('about', $data);
-});
+Route::get('/about', [AboutController::class, 'index']);
