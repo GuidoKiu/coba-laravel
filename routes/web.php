@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Mahasiswa_C;
+use App\Http\Controllers\MahasiswaController;
 use App\Models\Mahasiswa_M;
 use Illuminate\Support\Facades\Route;
 
@@ -22,8 +22,8 @@ Route::get('/', function ()
 });
 
 
-Route::get('/mahasiswa', [Mahasiswa_C::class, 'index']);
-Route::get('mahasiswa_detail/{slug}', [Mahasiswa_C::class, 'mahasiswat']); 
+Route::get('/mahasiswa', [MahasiswaController::class, 'index']);
+Route::get('mahasiswa_detail/{mahasiswa:nim}', [MahasiswaController::class, 'mahasiswat']); 
     
 Route::get('/about', function ()
 {

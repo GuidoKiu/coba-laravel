@@ -23,6 +23,7 @@
                 <tr>
                     <th> NIM </th>
                     <th> Nama </th>
+                    <th> Umur </th>
                     <th> Hobi </th>
                     <th> Aksi </th>
                 </tr>
@@ -30,16 +31,17 @@
             <tbody>
                 @foreach ($mahasiswa as $mt)
                 <tr>
-                    <td>{{ $mt['nim'] }}</td>
-                    <td>{{ $mt['nama'] }}</td>
-                    <td>{{ $mt['hobi'] }}</td>
+                    <td>{{ $mt->nim }}</td>
+                    <td>{{ $mt->nama }}</td>
+                    <td>{{ $mt->umur }}</td>
+                    <td>{{ $mt->hobi }}</td>
                     <td>
-                        <a href="/mahasiswa/hapus/{{ $mt['nim'] }}"
+                        <a href="/mahasiswa/hapus/{{ $mt->nim }}"
                             class="badge badge-danger float-right ml-1"
                             onclick="return confirm('yakin?');">Hapus</a>
-                        <a href="/mahasiswa/ubah/{{ $mt['nim'] }}"
+                        <a href="/mahasiswa/ubah/{{ $mt->nim }}"
                             class="badge badge-warning float-right ml-1 tampilModalUbah" data-toggle="modal"
-                            data-target="#formModal" data-id="{{ $mt['nim'] }}">Ubah</a>
+                            data-target="#formModal" data-id="{{ $mt->nim }}">Ubah</a>
                         <a href="/mahasiswa_detail/{{ $mt['nim'] }}"
                             class="badge badge-primary float-right ml-1">Detail</a>
                     </td>

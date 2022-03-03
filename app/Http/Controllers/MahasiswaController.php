@@ -3,26 +3,26 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Mahasiswa_M;
+use App\Models\Mahasiswa;
 
-class Mahasiswa_C extends Controller
+class MahasiswaController extends Controller
 {
     public function index()
     {
         $data = 
         [
             'title' => 'Data Mahasiswa',
-            'mahasiswa' => Mahasiswa_M::all()
+            'mahasiswa' => Mahasiswa::all()
         ];
         return view('mahasiswa', $data);
     }
 
-    public function mahasiswat($nim)
+    public function mahasiswat(Mahasiswa $mahasiswa)
     {
         $data = 
         [ 
             'title' => 'Detail Data Mahasiswa', 
-            'mahasiswa' => Mahasiswa_M::detail($nim)
+            'mahasiswa' => $mahasiswa
         ];
         return view('mahasiswa_detail', $data);
     }
